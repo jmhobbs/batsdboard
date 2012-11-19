@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<div id="plot" style="width: 600px; height: 300px;"></div>
+{% endblock %}
+
+{% block script %}
+<script>
+	$(function () {
+		var options = {
+			series: { shadowSize: 0 },
+			xaxis: {
+				ticks: 5,
+				tickFormatter: function formatter(val, axis) {
+					return (new Date(val*1000)).toLocaleTimeString()
+				}
+			}
+		};
+		var plot = $.plot($("#plot"), [{{json.dumps(dataset.series)}}], options);
+	});
+</script>
+{% endblock %}

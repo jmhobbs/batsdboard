@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Counters</h1>
+<ul>
+{% for counter in counters %}
+<li><a href="{{url_for('batsdboard.counter', name=counter.name)}}">{{counter.name}}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

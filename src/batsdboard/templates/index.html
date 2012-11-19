@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block body %}
+<h3>Counters</h3>
+<ul>
+{% for counter in counters %}
+<li><a href="{{url_for('batsdboard.counter', name=counter.name)}}">{{counter.name}}</a></li>
+{% endfor %}
+</ul>
+
+<h3>Timers</h3>
+<ul>
+{% for timer in timers %}
+<li><a href="{{url_for('batsdboard.timer', name=timer.name, measure='mean')}}">{{timer.name}}</a></li>
+{% endfor %}
+</ul>
+
+<h3>Gauges</h3>
+<ul>
+{% for gauge in gauges %}
+<li><a href="{{url_for('batsdboard.gauge', name=gauge.name)}}">{{gauge.name}}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

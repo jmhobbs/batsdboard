@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>batsdboard</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.1/css/bootstrap.min.css" rel="stylesheet" media="screen">
+		<link href="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.1/css/bootstrap-responsive.min.css" rel="stylesheet">
+		<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+		<div class="container">
+			<div class="navbar">
+				<div class="navbar-inner">
+					<a class="brand" href="{{url_for('batsdboard.index')}}">batsdboard</a>
+					<ul class="nav">
+						<li{% if "index" == page %} class="active"{% endif %}><a href="{{url_for('batsdboard.index')}}">home</a></li>
+						<li{% if "counters" == page %} class="active"{% endif %}><a href="{{url_for('batsdboard.counters')}}">counters</a></li>
+						<li{% if "timers" == page %} class="active"{% endif %}><a href="{{url_for('batsdboard.timers')}}">timers</a></li>
+						<li{% if "gauges" == page %} class="active"{% endif %}><a href="{{url_for('batsdboard.gauges')}}">gauges</a></li>
+					</ul>
+				</div>
+			</div>
+			{% block body %}{% endblock %}
+		</div><!-- .container -->
+		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/flot/0.7/jquery.flot.min.js"></script>
+		<script src="//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/2.2.1/bootstrap.min.js"></script>
+		{% block script %}{% endblock %}
+	</body>
+</html>

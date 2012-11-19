@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Timers</h1>
+<ul>
+{% for timer in timers %}
+<li><a href="{{url_for('batsdboard.timer', name=timer.name, measure='mean')}}">{{timer.name}}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}

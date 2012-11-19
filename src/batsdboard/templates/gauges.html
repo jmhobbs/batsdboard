@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+{% block body %}
+<h1>Gauges</h1>
+<ul>
+{% for gauge in gauges %}
+<li><a href="{{url_for('batsdboard.gauge', name=gauge.name)}}">{{gauge.name}}</a></li>
+{% endfor %}
+</ul>
+{% endblock %}
